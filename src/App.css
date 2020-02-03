@@ -1,14 +1,20 @@
 .App {
+  display: grid;
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  border: 5px solid #282c34;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 5% 15% 10% 1fr;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: start;
+  font-size: 15px;
+}
+
+.App-header-logo-image {
+  border: 2px solid #282c34;
+  border-radius: 50%;
+  height: 3rem;
 }

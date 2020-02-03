@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Router>
-        <HomePage path="/articles" />
+        <HomePage path="/" />
         <TopicPage path="/articles/:topic" />
       </Router>
     </div>

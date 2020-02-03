@@ -4,7 +4,7 @@ import ArticleList from "./ArticleList";
 export default function TopicPage({ topic }) {
   return (
     <div>
-      <h3>Articles</h3>
+      <h3> Articles about {topic} . . .</h3>
       <ArticleList topic={topic} />
     </div>
   );
