@@ -14,8 +14,13 @@ export default class ArticleList extends Component {
     this.fetchArticles();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.topic !== this.props.topic) {
+  componentDidUpdate(prevProps, prevState) {
+    const { topic } = this.props;
+    const { sort_by, order } = this.state;
+    const topicChange = prevProps.topic !== topic;
+    const orderChange = order !== prevState.order;
+    const sortByChange = sort_by !== prevState.sort_by;
+    if (topicChange || orderChange || sortByChange) {
       this.fetchArticles();
     }
   }
@@ -30,11 +35,15 @@ export default class ArticleList extends Component {
     });
   };
 
+  sortList = (sort_by, order) => {
+    this.setState({ sort_by, order });
+  };
+
   render() {
     const { articles } = this.state;
     return (
       <div>
-        <ArticleSorter />
+        <ArticleSorter sortList={this.sortList} />
         <ul>
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;

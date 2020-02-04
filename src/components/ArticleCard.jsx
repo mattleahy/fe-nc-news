@@ -1,4 +1,5 @@
 import React from "react";
+import dateFormat from "../utils/utils";
 
 export default function StudentCard(props) {
   return (
@@ -9,7 +10,11 @@ export default function StudentCard(props) {
       <br />
       <label>Author: {props.article.author}</label>
       <br />
-      <label>Created_at: {props.article.created_at}</label>
+      <label>Date: {dateFormat(props.article.created_at)}</label>
+      <br />
+      <label>Comments: {props.article.comment_count}</label>
+      <br />
+      <label>Votes: {props.article.votes}</label>
     </li>
   );
 }

@@ -11,7 +11,7 @@ const handleClick = event => {
 export default function Header() {
   return (
     <div className="App-header">
-      <Link to="/">
+      <Link to="/articles">
         <img
           src={NCLogo}
           className="App-header-logo-image"

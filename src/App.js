@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import TopicPage from "./components/TopicPage";
+import SingleArticle from "./components/SingleArticle";
 import "./App.css";
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
     <div className="App">
       <Header />
       <Router>
-        <HomePage path="/" />
-        <TopicPage path="/articles/:topic" />
+        <HomePage path="/articles" />
+        <TopicPage path="/articles/topic" />
+        <SingleArticle path="/articles/id/article_id" />
       </Router>
     </div>
   );

@@ -4,7 +4,7 @@
 }
 
 .App-header {
-  border: 5px solid #282c34;
+  border: 2px solid #282c34;
   display: grid;
   gap: 10px;
   grid-template-columns: 5% 15% 10% 1fr;
@@ -17,4 +17,18 @@
   border: 2px solid #282c34;
   border-radius: 50%;
   height: 3rem;
+}
+
+.Article-sort-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 40%;
+  border: 2px solid #282c34;
+}
+
+.selected {
+  border: 2px solid black;
+}
+
+.unselected {
+  border: 1px solid black;
 }

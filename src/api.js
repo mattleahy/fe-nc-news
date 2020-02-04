@@ -16,3 +16,12 @@ export const getAllArticles = (topic, author, sort_by, order) => {
       return data.articles;
     });
 };
+
+export const getArticleById = async article_id => {
+  const data = await axios.get(`${baseURL}/articles/1`).catch(err => {
+    console.log(err);
+  });
+  console.log(data);
+
+  return data.article;
+};
