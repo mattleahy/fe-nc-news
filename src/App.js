@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Router>
         <HomePage path="/articles" />
-        <TopicPage path="/articles/topic" />
-        <SingleArticle path="/articles/id/article_id" />
+        <TopicPage path="/topics/:topic" />
+        <SingleArticle path="/articles/:article_id" />
       </Router>
     </div>
   );

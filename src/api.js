@@ -17,11 +17,15 @@ export const getAllArticles = (topic, author, sort_by, order) => {
     });
 };
 
-export const getArticleById = async article_id => {
-  const data = await axios.get(`${baseURL}/articles/1`).catch(err => {
-    console.log(err);
+export const getTopics = () => {
+  return axios.get(`${baseURL}/topics`).then(({ data }) => {
+    return data.topics;
   });
-  console.log(data);
+};
 
-  return data.article;
+export const getArticleById = article_id => {
+  console.log(article_id);
+  return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
 };

@@ -4,7 +4,7 @@ import NCLogo from "../nc-logo.png";
 
 const handleClick = event => {
   if (event.target.value !== "topic") {
-    navigate(`/articles/${event.target.value}`);
+    navigate(`/topics/${event.target.value}`);
   }
 };
 
