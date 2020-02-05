@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../api";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
+import CommentsList from "./CommentsList";
 
 export default class SingleArticle extends Component {
   state = {
@@ -34,6 +35,7 @@ export default class SingleArticle extends Component {
           <h3>Title: {article.title}</h3>
           <p>Article: #{article.article_id}</p>
           <p id="body">{article.body} </p>
+          <CommentsList article_id={article.article_id} />
         </div>
       );
   }

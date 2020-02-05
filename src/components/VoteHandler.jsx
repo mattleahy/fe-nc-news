@@ -9,11 +9,11 @@ export default class VoteHandler extends Component {
   };
 
   handleClick = voteDifference => {
-    const { article_id } = this.props;
+    const { comment_id } = this.props;
     this.setState(currentState => {
       return { voteChange: currentState.voteChange + voteDifference };
     });
-    api.patchVotes(article_id, voteDifference).catch(err => {
+    api.patchVotes(comment_id, null, voteDifference).catch(err => {
       this.setState(currentState => {
         return {
           err: err.response,
@@ -28,9 +28,16 @@ export default class VoteHandler extends Component {
     const { voteChange, err } = this.state;
     return (
       <section>
-        <button onClick={() => this.handleClick(1)}>Up</button>
+        <button disabled={voteChange === 1} onClick={() => this.handleClick(1)}>
+          Up
+        </button>
         <p>Votes: {votes + voteChange}</p>
-        <button onClick={() => this.handleClick(-1)}>Down</button>
+        <button
+          disabled={voteChange === 1}
+          onClick={() => this.handleClick(-1)}
+        >
+          Down
+        </button>
         {err && <ErrorPage err={err} />}
       </section>
     );
