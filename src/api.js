@@ -29,3 +29,7 @@ export const getArticleById = article_id => {
     return data.article;
   });
 };
+
+// export const patchVotes = () => {
+//   axios.patch(`${baseURL}/`)
+// }
