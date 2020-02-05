@@ -8,7 +8,7 @@ const handleClick = event => {
   }
 };
 
-export default function Header() {
+export default function Header({ user, users, selectUser }) {
   return (
     <div className="App-header">
       <Link to="/articles">
@@ -27,6 +27,25 @@ export default function Header() {
         <option value="cooking">Cooking</option>
         <option value="football">Football</option>
       </select>
+
+      <p>Logged in as : {user}</p>
+      <div c>
+        <button>Select User</button>
+        <div>
+          {users.map(user => {
+            return (
+              <button
+                key={user}
+                onClick={() => {
+                  selectUser(user);
+                }}
+              >
+                {user}
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
