@@ -29,7 +29,7 @@ export default function Header({ user, users, selectUser }) {
       </select>
 
       <p>Logged in as : {user}</p>
-      <div c>
+      <div>
         <button>Select User</button>
         <div>
           {users.map(user => {

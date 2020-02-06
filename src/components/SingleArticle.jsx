@@ -35,7 +35,10 @@ export default class SingleArticle extends Component {
           <h3>Title: {article.title}</h3>
           <p>Article: #{article.article_id}</p>
           <p id="body">{article.body} </p>
-          <CommentsList article_id={article.article_id} />
+          <CommentsList
+            user={this.props.user}
+            article_id={article.article_id}
+          />
         </div>
       );
   }

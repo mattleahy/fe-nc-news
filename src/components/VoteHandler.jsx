@@ -5,22 +5,18 @@ import ErrorPage from "./ErrorPage";
 export default class VoteHandler extends Component {
   state = {
     voteChange: 0,
+    disabled: false,
     err: null
   };
 
   handleClick = voteDifference => {
-    const { comment_id } = this.props;
+    const { comment_id, article_id } = this.props;
+    this.setState({ disabled: true });
     this.setState(currentState => {
       return { voteChange: currentState.voteChange + voteDifference };
     });
-    api.patchVotes(comment_id, null, voteDifference).catch(err => {
-      this.setState(currentState => {
-        return {
-          err: err.response,
-          voteChange: currentState.voteChange - voteDifference
-        };
-      });
-    });
+    if (!article_id) api.patchVotesByCommentId(comment_id, voteDifference);
+    else api.patchVotesByArticleId(article_id, voteDifference);
   };
 
   render() {
@@ -33,7 +29,7 @@ export default class VoteHandler extends Component {
         </button>
         <p>Votes: {votes + voteChange}</p>
         <button
-          disabled={voteChange === 1}
+          disabled={voteChange === -1}
           onClick={() => this.handleClick(-1)}
         >
           Down

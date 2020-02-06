@@ -39,32 +39,26 @@ export const getCommentsByArticleId = article_id => {
     });
 };
 
-export const patchVotes = (comment_id, article_id, increment_by) => {
-  if (article_id) {
-    return axios
-      .patch(`${baseURL}/articles/${article_id}`, {
-        inc_votes: increment_by
-      })
-      .then(data => {
-        return data.article.votes;
-      });
-  } else
-    return axios
-      .patch(`${baseURL}/comments/${comment_id}`, {
-        inc_votes: increment_by
-      })
-      .then(data => {
-        return data.comment.votes;
-      });
+export const patchVotesByArticleId = (article_id, increment_by) => {
+  return axios.patch(`${baseURL}/articles/${article_id}`, {
+    inc_votes: increment_by
+  });
 };
 
-export const postComment = (body, username, article_id) => {
+export const patchVotesByCommentId = (comment_id, increment_by) => {
+  return axios.patch(`${baseURL}/comments/${comment_id}`, {
+    inc_votes: increment_by
+  });
+};
+
+export const postCommentByArticleId = (article_id, comment) => {
   return axios
-    .post(`${baseURL}/articles/${article_id}/comments`, {
-      username: username,
-      body: body
-    })
+    .post(`${baseURL}/articles/${article_id}/comments`, comment)
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const deleteCommentByCommentId = comment_id => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`);
 };

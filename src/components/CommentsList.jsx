@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CommentCard from "./CommentCard";
+import CommentAdder from "./CommentAdder";
 import * as api from "../api";
 
 export default class CommentsList extends Component {
@@ -13,14 +14,42 @@ export default class CommentsList extends Component {
     });
   }
 
+  addComment = newComment => {
+    this.setState(currentState => {
+      return { comments: [newComment, ...currentState.comments] };
+    });
+  };
+
+  deleteComment = id => {
+    api.deleteCommentByCommentId(id).then(() => {
+      this.setState(({ comments }) => {
+        return {
+          comments: comments.filter(comment => comment.comment_id !== id)
+        };
+      });
+    });
+  };
+
   render() {
     const { comments } = this.state;
     return (
       <div>
+        <CommentAdder
+          article_id={this.props.article_id}
+          user={this.props.user}
+          addComment={this.addComment}
+        />
         <h3>Comments:</h3>
         <ul id="comment-list">
           {comments.map(comment => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
+            return (
+              <CommentCard
+                user={this.props.user}
+                key={comment.comment_id}
+                deleteComment={this.deleteComment}
+                comment={comment}
+              />
+            );
           })}
         </ul>
       </div>
