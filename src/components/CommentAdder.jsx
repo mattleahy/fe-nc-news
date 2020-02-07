@@ -19,7 +19,7 @@ export default class CommentAdder extends Component {
       .postCommentByArticleId(article_id, { username: user, body })
       .then(comment => {
         this.props.addComment(comment);
-        this.setState({ user: "", body: "" });
+        this.setState({ body: "" });
       });
   };
 

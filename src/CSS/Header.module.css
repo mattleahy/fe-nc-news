@@ -1,0 +1,15 @@
+.header {
+  border: 2px solid #282c34;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 5% 12% 50% 10% 20%;
+  align-items: center;
+  justify-items: start;
+  font-size: 15px;
+}
+
+.logoImage {
+  border: 2px solid #282c34;
+  border-radius: 50%;
+  height: 3rem;
+}

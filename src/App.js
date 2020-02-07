@@ -5,7 +5,7 @@ import HomePage from "./components/HomePage";
 import TopicPage from "./components/TopicPage";
 import SingleArticle from "./components/SingleArticle";
 import ErrorPage from "./components/ErrorPage";
-import "./App.css";
+import styles from "./CSS/App.module.css";
 
 export default class App extends React.Component {
   state = {
@@ -18,13 +18,16 @@ export default class App extends React.Component {
   render() {
     const { users, user } = this.state;
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Header selectUser={this.selectUser} user={user} users={users} />
         <Router>
-          <HomePage user={user} path="/*" />
+          <HomePage user={user} path="/articles" />
           <TopicPage user={user} path="/topics/:topic" />
           <SingleArticle user={user} path="/articles/:article_id" />
-          <ErrorPage default />
+          <ErrorPage
+            default
+            err={{ status: 404, data: { msg: "Page Not Found" } }}
+          />
         </Router>
       </div>
     );

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, navigate } from "@reach/router";
 import NCLogo from "../nc-logo.png";
+import styles from "../CSS/Header.module.css";
 
-const handleClick = event => {
+const handleChange = event => {
   if (event.target.value !== "topic") {
     navigate(`/topics/${event.target.value}`);
   }
@@ -10,18 +11,14 @@ const handleClick = event => {
 
 export default function Header({ user, users, selectUser }) {
   return (
-    <div className="App-header">
+    <div className={styles.header}>
       <Link to="/articles">
-        <img
-          src={NCLogo}
-          className="App-header-logo-image"
-          alt="Northcoders Logo"
-        />
+        <img src={NCLogo} className={styles.logoImage} alt="Northcoders Logo" />
       </Link>
 
       <h1>NC NEWS</h1>
 
-      <select onClick={handleClick} id="topicDropdown">
+      <select onChange={handleChange} id="topicDropdown">
         <option value="topic">Topic</option>
         <option value="coding">Coding</option>
         <option value="cooking">Cooking</option>
@@ -30,7 +27,7 @@ export default function Header({ user, users, selectUser }) {
 
       <p>Logged in as : {user}</p>
       <div>
-        <button>Select User</button>
+        <p>Select User:</p>
         <div>
           {users.map(user => {
             return (
