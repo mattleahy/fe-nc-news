@@ -7,82 +7,39 @@ export default class ArticleSorter extends Component {
     order: "desc"
   };
 
-  handleClick = ({ target }) => {
-    this.setState({ [target.name]: target.id });
-  };
-
-  handleSubmit = event => {
+  componentDidUpdate(prevProps, prevState) {
     const { sort_by, order } = this.state;
     const { sortList } = this.props;
-    event.preventDefault();
-    sortList(sort_by, order);
-  };
+    const diffSort_by = sort_by !== prevState.sort_by;
+    const diffOrder = order !== prevState.order;
+    if (diffSort_by || diffOrder) {
+      sortList(sort_by, order);
+    }
+  }
 
   render() {
-    const { sort_by, order } = this.state;
     return (
-      <form className={styles.form} onSubmit={this.handleSubmit}>
-        <p>Sort By:</p>
-        <section id="sort">
-          <button
-            type="button"
-            onClick={this.handleClick}
-            name="sort_by"
-            id="created_at"
-            className={
-              sort_by === "created_at" ? styles.selected : styles.unselected
-            }
-          >
-            Date
-          </button>
-          <button
-            type="button"
-            onClick={this.handleClick}
-            name="sort_by"
-            id="votes"
-            className={
-              sort_by === "votes" ? styles.selected : styles.unselected
-            }
-          >
-            Votes
-          </button>
-          <button
-            type="button"
-            onClick={this.handleClick}
-            name="sort_by"
-            id="comment_count"
-            className={
-              sort_by === "comment_count" ? styles.selected : styles.unselected
-            }
-          >
-            Comments
-          </button>
-        </section>
-        <p>Order:</p>
-        <section id="order">
-          <button
-            type="button"
-            onClick={this.handleClick}
-            name="order"
-            id="desc"
-            className={order === "desc" ? styles.selected : styles.unselected}
-          >
-            Descending
-          </button>
-          <button
-            type="button"
-            onClick={this.handleClick}
-            name="order"
-            id="asc"
-            className={order === "asc" ? styles.selected : styles.unselected}
-          >
-            Ascending
-          </button>
-        </section>
-        <button type="submit" className={styles.unselected}>
-          Submit
-        </button>
-      </form>
+      <section className={styles.sorter}>
+        <p className={styles.label}>Sort By:</p>
+        <select
+          className={styles.sortDropdown}
+          onChange={({ target: { value } }) =>
+            this.setState({ sort_by: value })
+          }
+        >
+          <option>created_at</option>
+          <option>votes</option>
+          <option>comment_count</option>
+        </select>
+        <p className={styles.label}>Order:</p>
+        <select
+          className={styles.orderDropdown}
+          onChange={({ target: { value } }) => this.setState({ order: value })}
+        >
+          <option>asc</option>
+          <option>desc</option>
+        </select>
+      </section>
     );
   }
 }

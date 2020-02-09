@@ -11,38 +11,37 @@ const handleChange = event => {
 
 export default function Header({ user, users, selectUser }) {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <Link to="/articles">
         <img src={NCLogo} className={styles.logoImage} alt="Northcoders Logo" />
       </Link>
 
-      <h1>NC NEWS</h1>
+      <h1 className={styles.headerName}>NC NEWS</h1>
 
-      <select onChange={handleChange} id="topicDropdown">
-        <option value="topic">Topic</option>
-        <option value="coding">Coding</option>
-        <option value="cooking">Cooking</option>
-        <option value="football">Football</option>
-      </select>
+      <section className={styles.topicDropdown}>
+        <select onChange={handleChange} id="topicDropdown">
+          <option value="topic">Topic</option>
+          <option value="coding">Coding</option>
+          <option value="cooking">Cooking</option>
+          <option value="football">Football</option>
+        </select>
+      </section>
 
-      <p>Logged in as : {user}</p>
-      <div>
+      <section className={styles.loggedInUser}>
+        <p>Logged in as : {user}</p>
+      </section>
+
+      <section className={styles.userSelect}>
         <p>Select User:</p>
-        <div>
+        <select
+          className={styles.userDropdown}
+          onChange={({ target: { value } }) => selectUser(value)}
+        >
           {users.map(user => {
-            return (
-              <button
-                key={user}
-                onClick={() => {
-                  selectUser(user);
-                }}
-              >
-                {user}
-              </button>
-            );
+            return <option key={user}>{user}</option>;
           })}
-        </div>
-      </div>
-    </div>
+        </select>
+      </section>
+    </header>
   );
 }

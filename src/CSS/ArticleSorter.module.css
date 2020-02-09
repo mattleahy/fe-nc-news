@@ -1,16 +1,14 @@
-.form {
-  display: grid;
-  grid-template-columns: 5% 10% 3% 10% auto;
-  justify-items: start;
+.sorter {
+  display: flex;
   align-items: center;
-  border: 2px solid #282c34;
 }
 
-.selected {
-  background-color: rgb(31, 148, 168);
-  border-radius: 30%;
+.label {
+  padding: 0.5rem;
 }
 
-.unselected {
-  background-color: rgb(255, 255, 255);
+.sortDropdown {
+}
+
+.orderDropdown {
 }
