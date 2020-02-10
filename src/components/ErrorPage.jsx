@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "../CSS/ErrorPage.module.css";
 
 export default function ErrorPage({ err }) {
   return (
-    <div>
-      <h2>
-        Something went wrong. Status: {err.status}: {err.data.msg}
-      </h2>
-    </div>
+    <section className={styles.errorSection}>
+      <h2 className={styles.errorHeader}>Something went wrong!</h2>
+      <p className={styles.status}>Status: {err.status}</p>
+      <p className={styles.message}>{err.data.msg}</p>
+    </section>
   );
 }

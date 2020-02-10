@@ -4,29 +4,37 @@ import dateFormat from "../utils/utils";
 import VoteHandler from "./VoteHandler";
 import styles from "../CSS/ArticleCard.module.css";
 
-export default function StudentCard(props) {
+export default function ArticleCard(props) {
   const path = `/articles/${props.article.article_id}`;
   return (
-    <section className={styles.card}>
-      <li className={styles.list}>
-        <Link to={path}>
-          <label>Title: {props.article.title}</label>
-        </Link>
-        <br />
-        <label>Topic: {props.article.topic}</label>
-        <br />
-        <label>Author: {props.article.author}</label>
-        <br />
-        <label>Date: {dateFormat(props.article.created_at)}</label>
-        <br />
-        <label>Comments: {props.article.comment_count}</label>
-        <br />
-      </li>
-      <VoteHandler
-        className={styles.VoteHandler}
-        article_id={props.article.article_id}
-        votes={props.article.votes}
-      />
-    </section>
+    <li className={styles.card}>
+      <section className={styles.sidebar}>
+        <section className={styles.voter}>
+          <VoteHandler
+            article_id={props.article.article_id}
+            votes={props.article.votes}
+            disabled={props.user === props.article.author}
+          />
+        </section>
+        <section>
+          <i className="fas fa-comments article-card-comments"></i>
+          <br />
+          <label>{props.article.comment_count}</label>
+        </section>
+      </section>
+
+      <label className={styles.topic}>{props.article.topic}</label>
+
+      <Link to={path} className={styles.title}>
+        <label className={styles.linkTitle}>{props.article.title}</label>
+      </Link>
+
+      <section className={styles.info}>
+        <p className={styles.infoText}>author: {props.article.author}</p>
+        <p className={styles.infoText}>
+          date: {dateFormat(props.article.created_at)}
+        </p>
+      </section>
+    </li>
   );
 }

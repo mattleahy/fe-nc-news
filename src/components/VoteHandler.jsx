@@ -25,18 +25,19 @@ export default class VoteHandler extends Component {
   render() {
     const { votes } = this.props;
     const { voteChange, err } = this.state;
+    const up = voteChange === 1;
+    const down = voteChange === -1;
     return (
       <section className={styles.VoteHandler}>
-        <button disabled={voteChange === 1} onClick={() => this.handleClick(1)}>
-          Up
-        </button>
-        <p>Votes: {votes + voteChange}</p>
-        <button
-          disabled={voteChange === -1}
+        <i
+          className={`fas fa-caret-up${up ? "up" : ""}`}
+          onClick={() => this.handleClick(1)}
+        ></i>
+        <p>{votes + voteChange}</p>
+        <i
+          className={`fas fa-caret-down${down ? "down" : ""}`}
           onClick={() => this.handleClick(-1)}
-        >
-          Down
-        </button>
+        ></i>
         {err && <ErrorPage err={err} />}
       </section>
     );

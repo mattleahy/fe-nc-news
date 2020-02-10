@@ -1,9 +1,9 @@
 .header {
-  border: 2px solid #282c34;
   display: flex;
   align-items: center;
   justify-items: start;
   padding: 0.5rem;
+  background-color: #b7b7b7;
 }
 
 .logoImage {

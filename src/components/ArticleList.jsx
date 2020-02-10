@@ -4,6 +4,7 @@ import ArticleCard from "./ArticleCard";
 import ArticleSorter from "./ArticleSorter";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
+import styles from "../CSS/ArticleList.module.css";
 
 export default class ArticleList extends Component {
   state = {
@@ -56,14 +57,19 @@ export default class ArticleList extends Component {
     else if (isLoading) return <Loading />;
     else
       return (
-        <div>
-          <ArticleSorter sortList={this.sortList} />
-          <ul>
-            {articles.map(article => {
-              return <ArticleCard article={article} key={article.article_id} />;
-            })}
-          </ul>
-        </div>
+        <main className={styles.listMain}>
+          <h2 className={styles.text}>{this.props.topic} articles</h2>
+          <ArticleSorter className={styles.sorter} sortList={this.sortList} />
+          <section className={styles.list}>
+            <ul>
+              {articles.map(article => {
+                return (
+                  <ArticleCard article={article} key={article.article_id} />
+                );
+              })}
+            </ul>
+          </section>
+        </main>
       );
   }
 }

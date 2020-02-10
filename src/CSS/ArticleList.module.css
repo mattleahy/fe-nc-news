@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  justify-content: center;
+  background-color: #ceb7b3;
+}
+
+.text {
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: #ceb7b3;
+}

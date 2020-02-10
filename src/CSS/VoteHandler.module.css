@@ -1,4 +1,33 @@
-.VoteHandler {
-  display: flex;
-  justify-content: center;
+.fa-caret-up {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.fa-caret-down {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.fa-caret-up:hover {
+  cursor: pointer;
+  background-color: rgb(188, 231, 188);
+}
+.fa-caret-down:hover {
+  cursor: pointer;
+  background-color: rgb(231, 195, 188);
+}
+
+.voteHandler {
+  background-color: blue;
+}
+
+.up {
+  color: greenyellow;
+  background-color: darkgreen;
+}
+
+.down {
+  color: rgb(255, 71, 47);
+  background-color: darkred;
 }

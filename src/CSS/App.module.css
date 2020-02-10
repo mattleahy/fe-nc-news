@@ -1,5 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+}
+
 .App {
   display: grid;
   text-align: center;
-  background-color: rgb(241, 173, 69);
+  background-color: #ceb7b3;
+}
+
+select {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  padding: 2px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
 }

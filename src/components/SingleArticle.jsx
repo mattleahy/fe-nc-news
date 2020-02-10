@@ -3,6 +3,7 @@ import * as api from "../api";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
 import CommentsList from "./CommentsList";
+import styles from "../CSS/SingleArticle.module.css";
 
 export default class SingleArticle extends Component {
   state = {
@@ -31,7 +32,7 @@ export default class SingleArticle extends Component {
     else if (isLoading) return <Loading />;
     else
       return (
-        <div>
+        <section className={styles.article}>
           <h3>Title: {article.title}</h3>
           <p>Article: #{article.article_id}</p>
           <p id="body">{article.body} </p>
@@ -39,7 +40,7 @@ export default class SingleArticle extends Component {
             user={this.props.user}
             article_id={article.article_id}
           />
-        </div>
+        </section>
       );
   }
 }

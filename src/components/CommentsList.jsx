@@ -33,13 +33,13 @@ export default class CommentsList extends Component {
   render() {
     const { comments } = this.state;
     return (
-      <div>
+      <section>
+        <h3>Comments:</h3>
         <CommentAdder
           article_id={this.props.article_id}
           user={this.props.user}
           addComment={this.addComment}
         />
-        <h3>Comments:</h3>
         <ul id="comment-list">
           {comments.map(comment => {
             return (
@@ -52,7 +52,7 @@ export default class CommentsList extends Component {
             );
           })}
         </ul>
-      </div>
+      </section>
     );
   }
 }

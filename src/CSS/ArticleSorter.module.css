@@ -1,14 +1,9 @@
 .sorter {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  background-color: #ceb7b3;
 }
 
 .label {
   padding: 0.5rem;
-}
-
-.sortDropdown {
-}
-
-.orderDropdown {
 }

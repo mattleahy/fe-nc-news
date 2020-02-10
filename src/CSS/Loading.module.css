@@ -1,0 +1,7 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  height: 100vw;
+  font-size: 2rem;
+  background-color: #ceb7b3;
+}
