@@ -1,5 +1,5 @@
 .article {
-  display: flex;
+  display: grid;
   flex-direction: column;
   padding: 10px;
 }

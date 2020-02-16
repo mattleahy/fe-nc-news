@@ -1,0 +1,15 @@
+.commentAdder {
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput {
+  resize: none;
+  width: 70%;
+  border-radius: 0.4rem;
+}
+
+.postButton {
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+}

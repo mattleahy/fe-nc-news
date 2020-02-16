@@ -1,0 +1,38 @@
+.cardList {
+  margin: 1rem;
+  display: grid;
+  gap: 5px;
+  padding: 1rem;
+  grid-template-columns: 3rem 1fr 1fr 3rem;
+  grid-template-rows: 1fr 1rem;
+  grid-template-areas:
+    "voter comment comment comment"
+    "voter user date delete";
+  border-radius: 0.5em;
+  background-color: white;
+  -webkit-box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.text {
+  grid-area: comment;
+}
+
+.voter {
+  grid-area: voter;
+}
+
+.user {
+  grid-area: user;
+  color: grey;
+}
+
+.date {
+  grid-area: date;
+  color: grey;
+}
+
+.delete {
+  grid-area: delete;
+}

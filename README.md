@@ -4,9 +4,9 @@ This is my Northcoders Front End Project. A News App, created with React, retrie
 
 You can see it hosted online [here](https://matt-fe-nc-news.herokuapp.com/)
 
-The back end API can be found [here](https://matt-nc-news.herokuapp.com/)
+The back end API can be found [here](https://matt-nc-news.herokuapp.com/api)
 
-My back end github repo can alsobe viewed [here](https://github.com/mattleahy/be-nc-news)
+My back end github repo can also be viewed [here](https://github.com/mattleahy/be-nc-news)
 
 ## Getting Started
 

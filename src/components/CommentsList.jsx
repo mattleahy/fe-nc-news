@@ -34,7 +34,6 @@ export default class CommentsList extends Component {
     const { comments } = this.state;
     return (
       <section>
-        <h3>Comments:</h3>
         <CommentAdder
           article_id={this.props.article_id}
           user={this.props.user}
