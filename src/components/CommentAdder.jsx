@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import styles from "../CSS/CommentAdder.module.css";
+import styles from "../CSS/CommentsAdder.module.css";
 
 export default class CommentAdder extends Component {
   state = {
@@ -27,10 +27,10 @@ export default class CommentAdder extends Component {
   render() {
     return (
       <section className={styles.commentAdder}>
-        <h4>Comments</h4>
+        <h4 className={styles.header}>Comments</h4>
         <label>
           Post comment:
-          <form onSubmit={this.handleSubmit}>
+          <form className={styles.form} onSubmit={this.handleSubmit}>
             <textarea
               rows="5"
               cols="100"

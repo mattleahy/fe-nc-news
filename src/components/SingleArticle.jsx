@@ -33,9 +33,10 @@ export default class SingleArticle extends Component {
     else
       return (
         <section className={styles.article}>
-          <h3>Title: {article.title}</h3>
-          <p>Article: #{article.article_id}</p>
-          <p id="body">{article.body} </p>
+          <h3 className={styles.title}>Title: {article.title}</h3>
+          <p className={styles.text} id="body">
+            {article.body}{" "}
+          </p>
           <CommentsList
             user={this.props.user}
             article_id={article.article_id}

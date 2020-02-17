@@ -1,0 +1,32 @@
+.commentAdder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.textInput {
+  resize: none;
+  width: 70%;
+  border-radius: 0.4rem;
+}
+
+.postButton {
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+}
+.postButton:hover {
+  background: #73b873;
+}
+
+.postButton:active {
+  transform: scale(0.99);
+}
+
+.header {
+  padding: 0.5rem;
+}
+
+.form {
+  padding: 0.4rem;
+}

@@ -1,8 +1,8 @@
 .cardList {
   margin: 1rem;
   display: grid;
-  gap: 5px;
-  padding: 1rem;
+  gap: 15px;
+  padding: 2rem;
   grid-template-columns: 3rem 1fr 1fr 3rem;
   grid-template-rows: 1fr 1rem;
   grid-template-areas:
@@ -35,4 +35,14 @@
 
 .delete {
   grid-area: delete;
+  border-radius: 25%;
+}
+
+.delete:hover,
+.delete:focus {
+  background: #ff0101;
+}
+
+.delete:active {
+  transform: scale(0.99);
 }
