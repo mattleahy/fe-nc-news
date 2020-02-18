@@ -28,7 +28,7 @@ export default function Header({ user, users, selectUser }) {
       </section>
 
       <section className={styles.loggedInUser}>
-        <p>Logged in as : {user}</p>
+        <p>Logged in : {user}</p>
       </section>
 
       <section className={styles.userSelect}>

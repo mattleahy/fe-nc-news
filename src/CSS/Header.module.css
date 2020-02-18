@@ -9,12 +9,14 @@
 .logoImage {
   border-radius: 50%;
   height: 3rem;
+  margin: 0.5rem;
   padding: 0.5rem;
 }
 
 .headerName {
   font-size: 25px;
   padding-right: 0.5rem;
+  margin: 0.5rem;
 }
 
 .topicDropdown {
@@ -26,6 +28,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 1rem;
+  margin-right: 1rem;
 }
 
 .loggedInUser {
@@ -36,3 +39,15 @@
 .userDropdown {
   justify-self: flex-start;
 }
+
+@media only screen and (max-width: 615px) {
+  .headerName {
+    display: none;
+  }
+}
+
+/* @media only screen and (max-width: 485px) {
+  .header {
+    flex-wrap: wrap;
+  }
+} */
