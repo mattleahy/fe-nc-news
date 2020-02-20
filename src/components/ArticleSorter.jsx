@@ -27,17 +27,17 @@ export default class ArticleSorter extends Component {
             this.setState({ sort_by: value })
           }
         >
-          <option>created_at</option>
-          <option>votes</option>
-          <option>comment_count</option>
+          <option value="created_at">Date</option>
+          <option value="votes">Votes</option>
+          <option value="comment_count">Comments</option>
         </select>
         <p className={styles.label}>Order:</p>
         <select
           className={styles.orderDropdown}
           onChange={({ target: { value } }) => this.setState({ order: value })}
         >
-          <option>asc</option>
-          <option>desc</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
         </select>
       </section>
     );
